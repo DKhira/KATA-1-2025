@@ -2,11 +2,7 @@ import 'package:code_kata/roman_enum.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  final input = 'DCCLXXXIX';
-
-  final result = getRomanNumeric(input).toString();
-
-  debugPrint(result);
+  testRomanNumbers();
 }
 
 int getRomanNumeric(String input) {
@@ -35,4 +31,20 @@ int getRomanNumeric(String input) {
   }
 
   return total;
+}
+
+void testRomanNumbers() {
+  checkNumber('DCCLXXXIX', 789);
+  checkNumber('MMCDXXI', 2421);
+  checkNumber('XXXIX', 39);
+  checkNumber('CCVII', 207);
+  checkNumber('MLXVI', 1066);
+  checkNumber('MIX', 1009);
+  checkNumber('MMXXV', 2025);
+}
+
+void checkNumber(String input, int expectedResult) {
+  final result = getRomanNumeric(input);
+
+  debugPrint('Input: $input | ${result == expectedResult ? 'Pass' : 'Fail'}');
 }
